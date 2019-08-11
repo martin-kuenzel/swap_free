@@ -25,6 +25,6 @@ MEM_AFTER_SWAPOFF=$(awk 'BEGIN {LN=0}; $1 ~ /(MemFree|SwapTotal|SwapFree)/ { mem
 }
 
 swapoff -a
-sudo swapon -a
+swapon -a
 
 exit 0
