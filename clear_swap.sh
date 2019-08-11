@@ -14,7 +14,14 @@ MEM_AFTER_SWAPOFF=$(awk 'BEGIN {LN=0}; $1 ~ /(MemFree|SwapTotal|SwapFree)/ { mem
 	tput sgr0; 
 
 	read -p $'Continue anyways ? (Y|n) default: n\n' RE;
-	{ [ "$RE" == "Y" ] && { echo -e '\nOkay we will continue, but you have been warned.\n'; CONT=1; } || { echo "Canceling due to lack of free memory."; exit 1; }; }
+	{ 
+		[ "$RE" == "Y" ] && { 
+			echo -e '\nOkay we will continue, but you have been warned.\n'; 
+		} || { 
+			echo "Canceling due to lack of free memory."; 
+			exit 1; 
+		}; 
+	}
 }
 
 swapoff -a
